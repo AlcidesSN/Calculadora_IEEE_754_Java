@@ -4,10 +4,11 @@ public class Main {
         Conversor binary1 = new Conversor();
         Conversor binary2 = new Conversor();
 
-        double valor1 = 0.1;
-        double valor2 = 0.1;
+        double valor1 = 2.5;
+        double valor2 = 4.5;
 
         binary1.decimalToBinary(valor1);
+        binary2.decimalToBinary(valor2);
 
         String res =
                 "VALOR: " + valor1 +
@@ -32,6 +33,10 @@ public class Main {
         System.out.println(res2);
 
         System.out.println("--------");
-        System.out.println(Calculator.sumBin(binary1 , binary2));
+        System.out.println("A soma dos valores pela IEEE é: " + (Calculator.sumBin(binary1 , binary2)));
+        System.out.println("A subtração dos valores pela IEEE é: " + (Calculator.subBin(binary1 , binary2)));
+
+        System.out.println("A soma dos valores pela v1 + v2 é: " + (valor1 + valor2));
+        System.out.println("A subtração dos valores v1 - v1 é: " + (valor1 - valor2));
     }
 }

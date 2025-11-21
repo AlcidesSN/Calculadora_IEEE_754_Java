@@ -18,6 +18,7 @@ public class Conversor {
     public String decimalToBinary(double decimal) {
         int bits = 23;
         int sign = 0;
+        String binFrac = ".";
         if (decimal < 0) {
             sign = 1;
             decimal *= -1;
@@ -32,8 +33,7 @@ public class Conversor {
 
         //conversão da parte fracionaria
         if (frac == 0)
-            return binInt;
-        String binFrac = ".";
+            return normalizeBinary(sign,binInt,binFrac);
         for (int i = 0; i < bits; i++) {
             frac *= 2;
             if (frac >= 1) {
@@ -112,6 +112,7 @@ public class Conversor {
 
         return value * Math.pow(2, exponentReal);
     }
+
 
     public int getSign() {
         return sign;
