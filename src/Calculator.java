@@ -115,7 +115,7 @@ public abstract class Calculator {
         res = somarBinarios(fullA, fullB);
 
 
-        int mantSize = Math.max(fullA.length(), fullB.length());
+        int mantSize = fullB.length();
         int expoenteAjuste = 0;
 
         while (res.length() < mantSize) {
@@ -126,10 +126,10 @@ public abstract class Calculator {
             res = res.substring(0, res.length() - 1);
             expoenteAjuste = 1;
         }
-        int maxShifts = mantSize;
+
         int shifts = 0;
         boolean allZeros = res.matches("^0+$");
-        while (!allZeros && shifts < maxShifts && res.charAt(0) == '0') {
+        while (!allZeros && shifts < mantSize && res.charAt(0) == '0') {
             res = res.substring(1) + "0";
             expoenteAjuste--;
             shifts++;
@@ -142,10 +142,7 @@ public abstract class Calculator {
 
         String mantissaFinal = res.substring(1, 24);
 
-
-
-
-
+        System.out.println("mantissaFinal = " + mantissaFinal);
         return BinaryToDecimal(mantissaFinal, exp);
     }
 
